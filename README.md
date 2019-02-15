@@ -1,3 +1,0 @@
-# Junction
-Junction project
-
