@@ -54,10 +54,6 @@ const Index = () => {
             tag="figure"
           >
           </Parallax>
-        <div className='project_view'>
-          <Projects/>
-        </div>
-
         <style jsx>{`
           .project_view {
             width:100vw;

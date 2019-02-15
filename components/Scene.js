@@ -1,17 +1,15 @@
 import React from 'react'
-
-//import {Scene, TextureLoader, Mesh, PerspectiveCamera, Color, JSONLoader, ShaderMaterial, AmbientLight } from 'three'
-import {TextureLoader} from './threejs/src/loaders/TextureLoader.js'
-import {Mesh} from './threejs/src/objects/Mesh'
-import {PerspectiveCamera} from './threejs/src/cameras/PerspectiveCamera.js'
-import {Color} from './threejs/src/math/Color.js'
-import {JSONLoader} from './threejs/src/loaders/JSONLoader.js'
-import {ShaderMaterial} from './threejs/src/materials/ShaderMaterial'
-import {AmbientLight} from './threejs/src/lights/AmbientLight'
-import {Scene} from './threejs/src/scenes/Scene.js'
+import {Scene, TextureLoader, Mesh, PerspectiveCamera, Color, JSONLoader, ShaderMaterial, AmbientLight } from 'three'
+//import {TextureLoader} from './threejs/src/loaders/TextureLoader.js'
+//import {Mesh} from './threejs/src/objects/Mesh'
+//import {PerspectiveCamera} from './threejs/src/cameras/PerspectiveCamera.js'
+//import {Color} from './threejs/src/math/Color.js'
+//import {JSONLoader} from './threejs/src/loaders/JSONLoader.js'
+//import {ShaderMaterial} from './threejs/src/materials/ShaderMaterial'
+//import {AmbientLight} from './threejs/src/lights/AmbientLight'
+//import {Scene} from './threejs/src/scenes/Scene.js'
 import Renderer from './Renderer'
-
-
+//
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import faForward from '@fortawesome/fontawesome-free-solid/faForward'
 import faBackward from '@fortawesome/fontawesome-free-solid/faBackward'
@@ -19,7 +17,7 @@ import faBackward from '@fortawesome/fontawesome-free-solid/faBackward'
 import {vertShader} from './threejs/vertShader.js'
 import {fragShader} from './threejs/fragShader.js'
 
-
+import Hls from "hls.js";
 /**
  * Implements a 3D scene
  *
@@ -62,7 +60,6 @@ export default class Scene2 extends React.Component {
         let json = new Mesh( geometry, this.material)
         json.position.set( 0,1,-1)
         json.scale.set( 1, 1, 1 )
-        this.scene.add( json )
       } )
     })
   }
@@ -100,6 +97,11 @@ export default class Scene2 extends React.Component {
     this.setState({
       rotationDirection: this.state.rotationDirection * -1,
     })
+  }
+
+  componentDidMount(){
+    video = document.getElementById( 'video' );
+    var texture = new THREE.VideoTexture( video );
   }
 
   render = () => {
