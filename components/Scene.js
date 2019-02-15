@@ -99,11 +99,6 @@ export default class Scene2 extends React.Component {
     })
   }
 
-  componentDidMount(){
-    video = document.getElementById( 'video' );
-    var texture = new THREE.VideoTexture( video );
-  }
-
   render = () => {
     return (
       <div className='container-fluid'>
