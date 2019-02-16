@@ -1,35 +1,35 @@
 import React, { useState } from 'react'
-import NoSSR from 'react-no-ssr'
+import User from '../components/user.js'
 
-import Router from 'next/router'
-import Scene from '../components/Scene'
-import Loading from '../components/Loading'
-
-import '../styles/main.scss'
-import Projects from '../components/Projects'
-import { ParallaxProvider, Parallax} from 'react-scroll-parallax';
 /**
  * Implements main page
  */
+
+let Send = () =>{
+  
+}
+
 const Index = () => {
   const [selectedFile, setSelectedFile] = useState(0);
 
   return (
-    <div style={{justifyContent: 'center',
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    background: '#fafafa',
-    width: '100%',
-    background: "url('/static/bg.gif')"}}>
-<img src='/static/Trackr.png' style={{position: 'absolute',
-top: 70,
-left: '50%',
-width: 270,
-transform: 'translateX(-50%)'
-}} />
+    <div
+      style={{justifyContent: 'center',
+      alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      background: '#fafafa',
+      width: '100%',
+      background: "url('/static/bg.gif')"}}
+    >
+    <img src='/static/Trackr.png' style={{position: 'absolute',
+      top: 70,
+      left: '50%',
+      width: 270,
+      transform: 'translateX(-50%)'
+    }} />
       <input id="autocomplete" placeholder="Enter phone number" type="text" />
-      <a>SEND</a>
+      <a onClick={ () => Send  }>SEND</a>
 
       <img src='/static/globe.gif' style={{position: 'absolute', bottom: 24, right: 24, width: 70}} />
       <img src='/static/animation2.gif' style={{position: 'absolute', bottom: 24, left: 24, width: 100}} />

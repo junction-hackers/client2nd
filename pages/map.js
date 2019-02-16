@@ -2,9 +2,12 @@
 import React, { Component } from 'react';
 // Import Search Bar Components
 
+import User from '../components/user.js'
 // Import React Scrit Libraray to load Google object
 import Script from 'react-load-script';
 import '../styles/main.scss'
+
+import Router from 'next/router'
 
 class Search extends Component {
   // Define Constructor
@@ -18,26 +21,30 @@ class Search extends Component {
     };
 
     // Bind Functions
-    this.handleScriptLoad = this.handleScriptLoad.bind(this);
-    this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+    this.loadNextPage = this.loadNextPage.bind(this)
+    this.handleScriptLoad = this.handleScriptLoad.bind(this)
+    this.handlePlaceSelect = this.handlePlaceSelect.bind(this)
     this.foundLocation = this.foundLocation.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-    defaultBounds
-    options
-   foundLocation(position)
-    {
-      let lat = position.coords.latitude;
-      let long = position.coords.longitude;
-      this.defaultBounds = new google.maps.LatLngBounds(
-        new google.maps.LatLng(lat-1,long-1),
-        new google.maps.LatLng(lat+1,long+1)
-      )
-      console.log(position)
-      this.options = {
-        bounds:this.defaultBounds
-      };
+  defaultBounds
+  options
+
+  loadNextPage(){
+    Router.push('/numberInput')
+  }
+
+  foundLocation(position){
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    this.defaultBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(lat-1,long-1),
+      new google.maps.LatLng(lat+1,long+1)
+    )
+    this.options = {
+      bounds:this.defaultBounds
+    };
 
     this.autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('autocomplete'),
@@ -49,37 +56,26 @@ class Search extends Component {
     {
       options = {}
     }
+
   handleScriptLoad() {
-    // Declare Options For Autocomplete
-
-
     navigator.geolocation.getCurrentPosition(this.foundLocation, this.noLocation);
-
 
     this.autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('autocomplete'),
       this.options,
     );
     this.autocomplete.addListener('place_changed', this.handlePlaceSelect);
-
-
-    // Initialize Google Autocomplete
-    /*global google*/ // To disable any eslint 'google not defined' errors
-
-    // Fire Event when a suggested name is selected
   }
 
   handleInputChange(event) {
     this.setState({query: event.target.value});
   }
+
   handlePlaceSelect() {
-    // Extract City From Address Object
     let addressObject = this.autocomplete.getPlace();
     let address = addressObject.address_components;
 
-    // Check if address is valid
     if (address) {
-      // Set State
       this.setState(
         {
           city: address[0].long_name,
@@ -108,9 +104,11 @@ class Search extends Component {
           url={process.env.API_URL}
           onLoad={this.handleScriptLoad}
         />
-
+        <User
+          address={this.state.query} 
+        />
         <input id="autocomplete" placeholder="Enter location" hintText="Search City" value={this.state.query} onChange={this.handleInputChange} />
-        <a>NEXT</a>
+        <a onClick={this.loadNextPage}>NEXT</a>
 
         <img src='/static/globe.gif' style={{position: 'absolute', bottom: 24, right: 24, width: 70}} />
         <img src='/static/animation2.gif' style={{position: 'absolute', bottom: 24, left: 24, width: 100}} />
