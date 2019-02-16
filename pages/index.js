@@ -21,28 +21,29 @@ const Index = () => {
       Router.push('/map')
   }
   return (
-    <div style={{justifyContent: 'center',
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    background: 'white',
-  width: '100%'}}>
+    <div style={{background: 'white',
+    width: '100%',
+    textAlign: 'center',
+    paddingTop: 80}}>
 
       <User
        image={selectedFile}
        victimBool={victimBool}
       />
 
-    <img src='/static/logo.png' style={{color: 'black', margin: 0, position: 'absolute', top: 64, width: 170}} />
-
+    <div><img src='/static/logo.png' style={{marginBottom: 64, width: 180}} /></div>
+    <div>
     <label for="file_photo">
       FOUND
       <input id="file_photo" type="file" style={{display:'none'}} onChange={handleVictimFile}/>
     </label>
+    </div>
+    <div>
     <label for="file_photo">
       SEARCHING
       <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSearchFile}/>
     </label>
+    </div>
 
 
     <style jsx>{`
@@ -71,33 +72,18 @@ const Index = () => {
     p {
       width: 100%;
       margin: 0 auto;
-      white-space: nowrap;
-      overflow: hidden;
       box-sizing: border-box;
-      color: white;
-      position: absolute;
+      color: rgba(0,0,0,.5);
       top: 0;
       left: 0;
-      padding: 12px;
+      padding: 20px;
       box-sizing: border-box;
       font-size: 18px;
       font-weight: 400;
-    }
-
-    span {
-        display: inline-block;
-        padding-left: 100%;  /* show the marquee just outside the paragraph */
-        animation: marquee 15s linear infinite;
-    }
-
-    span:hover {
-        animation-play-state: paused
-    }
-
-    /* Make it move */
-    @keyframes marquee {
-        0%   { transform: translate(0, 0); }
-        100% { transform: translate(-100%, 0); }
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 64px;
+      max-width: 700px;
     }
 
     i {

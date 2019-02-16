@@ -20,16 +20,18 @@ let handleChange = (event) =>{
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [end, setEnd] = useState(false);
   return (
-    <div style={{justifyContent: 'center',
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    background: 'white',
-    width: '100%',}}>
+    <div style={{background: 'white',
+    width: '100%',
+    textAlign: 'center',
+    paddingTop: 80}}>
     <User phoneNumber={phoneNumber} end={end} />
-    <img src='/static/logo.png' style={{color: 'black', margin: 0, position: 'absolute', top: 64, width: 170}} />
+    <div><img src='/static/logo.png' style={{marginBottom: 64, width: 180}} /></div>
+    <div>
     <input id="autocomplete" placeholder="Enter phone number" type="text" onChange={handleChange}/>
+    </div>
+    <div>
     <a onClick={ () => Send  }>SEND</a>
+    </div>
 
 
     <style jsx>{`
@@ -43,7 +45,7 @@ let handleChange = (event) =>{
       border: 1px solid black;
       border: 1px solid rgba(0,0,0,.23);
       border-radius: 12px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       padding: 14px 20px;
       max-width: 500px;
       font-size: 18px;
