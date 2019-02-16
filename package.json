@@ -35,6 +35,7 @@
     "@material-ui/icons": "^3.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "ajv": "^6.9.1",
+    "aws-sdk": "^2.404.0",
     "dotenv-webpack": "^1.7.0",
     "hls.js": "^0.12.2",
     "material-ui-search-bar": "^0.4.2",
