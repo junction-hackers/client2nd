@@ -24,10 +24,10 @@ let handleChange = (event) =>{
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    background: '#fafafa',
+    background: 'white',
     width: '100%',}}>
     <User phoneNumber={phoneNumber} end={end} />
-    <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
+    <img src='/static/logo.png' style={{color: 'black', margin: 0, position: 'absolute', top: 64, width: 170}} />
     <input id="autocomplete" placeholder="Enter phone number" type="text" onChange={handleChange}/>
     <a onClick={ () => Send  }>SEND</a>
 
@@ -49,6 +49,7 @@ let handleChange = (event) =>{
       font-size: 18px;
       outline: none;
       font-size: 17px;
+      box-sizing: border-box;
     }
     input:hover {
       border: 1px solid rgba(0,0,0,.5);

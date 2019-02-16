@@ -25,7 +25,7 @@ const Index = () => {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    background: '#fafafa',
+    background: 'white',
   width: '100%'}}>
 
       <User
@@ -33,7 +33,7 @@ const Index = () => {
        victimBool={victimBool}
       />
 
-    <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
+    <img src='/static/logo.png' style={{color: 'black', margin: 0, position: 'absolute', top: 64, width: 170}} />
 
     <label for="file_photo">
       FOUND

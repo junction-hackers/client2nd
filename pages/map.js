@@ -91,16 +91,16 @@ class Search extends Component {
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
-        background: '#fafafa',
+        background: 'white',
         width: '100%',}}>
         <Script
           url={process.env.API_URL}
           onLoad={this.handleScriptLoad}
         />
         <User
-          address={this.state.query} 
+          address={this.state.query}
         />
-        <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
+        <img src='/static/logo.png' style={{color: 'black', margin: 0, position: 'absolute', top: 64, width: 170}} />
         <input id="autocomplete" placeholder="Enter location" hintText="Search City" value={this.state.query} onChange={this.handleInputChange} />
         <a onClick={this.loadNextPage}>NEXT</a>
 
