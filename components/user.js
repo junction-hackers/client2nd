@@ -30,7 +30,7 @@ class User extends React.Component {
 
     function addPhoto(file,victimBool) {
       var keyPrefix = 'raw/'
-      var id = 1
+      var id = 'http://192.168.179.6:3005/api/generate_id'
       var photoKey = keyPrefix+id;
       s3.upload({
         Key: photoKey,
