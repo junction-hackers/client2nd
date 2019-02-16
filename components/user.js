@@ -15,8 +15,11 @@ AWS.config.update({
 
 class User extends React.Component {
 
+  init(){
+    this.state={photoKey:0}
+  }
+    
   componentWillUnmount(){
-    this.props.photoKey=0
     this.props.phoneNumber=0
     this.props.address=''
   }
