@@ -6,8 +6,7 @@ const inputEl = useRef(null);
 
   return (
     <Layout>
-
-       <input id="autocomplete" placeholder="Enter a location" type="text" />
+       <p>DONE!</p>
     </Layout>
 )
 }
