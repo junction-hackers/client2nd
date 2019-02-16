@@ -13,17 +13,16 @@ AWS.config.update({
   })
 });
 
-class User extends React.Component {
+let photokey
+let phoneNumber
+let address
+let victimBool
 
+class User extends React.Component {
   init(){
     this.state={photoKey:0}
   }
     
-  componentWillUnmount(){
-    this.props.phoneNumber=0
-    this.props.address=''
-  }
-
   componentDidMount() {
     var s3 = new AWS.S3({
       params: {Bucket: this.props.victimBool ? victimBucketName : searcherBucketName}
@@ -46,6 +45,13 @@ class User extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    phoneNumber = this.props.phoneNumber
+    address = this.props.address
+    victimBool = this.props.victimBool
+    console.log(victimBool, phoneNumber, address, photokey)
+  }
+
   componentWillUpdate(){
     if(this.props.end){
       this.sendInfo()
@@ -53,7 +59,7 @@ class User extends React.Component {
   }
 
   sendInfo() {
-    addPhoto(this.props.image)
+    addPhoto(this.props.image,this.props.victimBool)
     body = {
       photoKey : this.state.photoKey,
       phoneNumber : this.props.phoneNumber,
