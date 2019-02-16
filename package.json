@@ -31,6 +31,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "ajv": "^6.9.1",
     "dotenv-webpack": "^1.7.0",
