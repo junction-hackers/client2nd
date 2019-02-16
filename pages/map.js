@@ -22,8 +22,6 @@ class Search extends Component {
     this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
     this.foundLocation = this.foundLocation.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
-
-
   }
 
     defaultBounds

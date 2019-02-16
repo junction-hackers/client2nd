@@ -1,36 +1,25 @@
 import React, { useState } from 'react'
-import NoSSR from 'react-no-ssr'
-
+import User from '../components/user.js'
 import Router from 'next/router'
-import Scene from '../components/Scene'
-import Loading from '../components/Loading'
 
 import '../styles/main.scss'
-import Projects from '../components/Projects'
-import { ParallaxProvider, Parallax} from 'react-scroll-parallax';
 
 /**
  * Implements main page
  */
 const Index = () => {
   const [selectedFile, setSelectedFile] = useState(0);
-
-  let handleSelectedFile = event => {
-      setSelectedFile(event.target.files[0])
-      navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
-
-      function foundLocation(position)
-      {
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
-        Router.push(`/map?lat=${lat}&long=${long}`)
-      }
-      function noLocation()
-      {
-        alert('Could not find location');
-      }
+  const [victimBool, setVictimBool] = useState(true);
+  let handleVictimFile = event => {
+-    setSelectedFile(event.target.files[0])
+     setVictimBool(true)
+      Router.push('/map')
   }
-
+  let handleSearchFile = event => {
+-    setSelectedFile(event.target.files[0])
+     setVictimBool(false)
+      Router.push('/map')
+  }
   return (
     <div style={{justifyContent: 'center',
     alignItems: 'center',
@@ -39,15 +28,20 @@ const Index = () => {
     background: '#fafafa',
   width: '100%'}}>
 
+      <User
+       image={selectedFile}
+       victimBool={victimBool}
+      />
+
     <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
 
     <label for="file_photo">
       FOUND
-      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSelectedFile}/>
+      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleVictimFile}/>
     </label>
     <label for="file_photo">
       SEARCHING
-      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSelectedFile}/>
+      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSearchFile}/>
     </label>
 
 
@@ -115,7 +109,6 @@ const Index = () => {
       font-weight: normal;
     }
     `}</style>
-
     </div>
   )
 }
