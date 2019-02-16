@@ -32,7 +32,7 @@ const Index = () => {
       />
 
     <div><img src='/static/logo.png' style={{marginBottom: 40, width: 180}} /></div>
-    <p>Hi, it's me Trackr! Your search and rescue buddy!<br />Did you find a missing person? Or are you searching for your loved ones?</p>
+    <p>Hey, it's me Trakr! Your search and rescue buddy!<br />Did you find a missing person? Or are you searching for your loved ones?</p>
     <div>
     <label for="file_photo">
       FOUND
