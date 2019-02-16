@@ -23,7 +23,7 @@ let handleChange = (event) =>{
     <div style={{background: 'white',
     width: '100%',
     textAlign: 'center',
-    paddingTop: 80}}>
+    paddingTop: 64}}>
     <User phoneNumber={phoneNumber} end={end} />
     <div><img src='/static/logo.png' style={{marginBottom: 64, width: 180}} /></div>
     <div>

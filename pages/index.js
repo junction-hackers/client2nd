@@ -24,14 +24,15 @@ const Index = () => {
     <div style={{background: 'white',
     width: '100%',
     textAlign: 'center',
-    paddingTop: 80}}>
+    paddingTop: 64}}>
 
       <User
        image={selectedFile}
        victimBool={victimBool}
       />
 
-    <div><img src='/static/logo.png' style={{marginBottom: 64, width: 180}} /></div>
+    <div><img src='/static/logo.png' style={{marginBottom: 40, width: 180}} /></div>
+    <p>Hi, it's me Trackr! Your search and rescue buddy!<br />Did you find a missing person? Or are you searching for your loved ones</p>
     <div>
     <label for="file_photo">
       FOUND
@@ -76,13 +77,12 @@ const Index = () => {
       color: rgba(0,0,0,.5);
       top: 0;
       left: 0;
-      padding: 20px;
+      padding: 0 20px;
       box-sizing: border-box;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 400;
       text-align: center;
-      margin-bottom: 20px;
-      margin-top: 64px;
+      margin-bottom: 40px;
       max-width: 700px;
     }
 

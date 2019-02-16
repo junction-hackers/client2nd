@@ -90,7 +90,7 @@ class Search extends Component {
       <div style={{background: 'white',
       width: '100%',
       textAlign: 'center',
-      paddingTop: 80}}>
+      paddingTop: 64}}>
         <Script
           url={process.env.API_URL}
           onLoad={this.handleScriptLoad}
