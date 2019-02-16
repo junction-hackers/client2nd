@@ -26,20 +26,15 @@ const Index = () => {
     display: 'flex',
     flexDirection: 'column',
     background: '#fafafa',
-    width: '100%',
-    background: "url('/static/bg.gif')"}}>
-    <User
-     image={selectedFile}
-     victimBool={victimBool} 
-    />
+  width: '100%'}}>
 
-    <p><span>If you found <i>someone involved in a disaster</i>, or if you are searching for your <b>missing loved ones</b>, please use the buttons below:</span></p>
-    <img src='/static/Trackr.png' style={{position: 'absolute',
-    top: 70,
-    left: '50%',
-    width: 270,
-    transform: 'translateX(-50%)'
-}} />
+      <User
+       image={selectedFile}
+       victimBool={victimBool}
+      />
+
+    <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
+
     <label for="file_photo">
       FOUND
       <input id="file_photo" type="file" style={{display:'none'}} onChange={handleVictimFile}/>
@@ -49,8 +44,6 @@ const Index = () => {
       <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSearchFile}/>
     </label>
 
-    <img src='/static/globe.gif' style={{position: 'absolute', bottom: 24, right: 24, width: 70}} />
-    <img src='/static/animation2.gif' style={{position: 'absolute', bottom: 24, left: 24, width: 100}} />
 
     <style jsx>{`
     label {
@@ -74,24 +67,7 @@ const Index = () => {
       background: #f5f5f5;
     }
 
-    label {
-      color: #1200f4;
-      text-transform: uppercase;
-      padding: .7em;
-      text-decoration: underline;
-      cursor: pointer;
-      font-size: 17px;
-      border-color: #cbcbcb #4e474e #4e474e #cbcbcb;
-      border-style: solid;
-      border-width: 5px;
-      background: #adadad;
-      font-weight: 700;
-    }
-    label:hover {
-      color: #fdf500;
-      outline-color: #fdf500;
-      background: #adadad;
-    }
+
     p {
       width: 100%;
       margin: 0 auto;
