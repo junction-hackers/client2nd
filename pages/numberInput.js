@@ -19,9 +19,20 @@ const Index = () => {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-  width: '100%'}}>
-      <input id="autocomplete" placeholder="Enter Your Phone Number" type="text" />
+    background: '#fafafa',
+  width: '100%',
+background: "url('/static/bg.gif')"}}>
+<img src='/static/Trackr.png' style={{position: 'absolute',
+top: 70,
+left: '50%',
+width: 200,
+transform: 'translateX(-50%)'
+}} />
+      <input id="autocomplete" placeholder="Enter phone number" type="text" />
       <a>SEND</a>
+
+      <img src='/static/globe.gif' style={{position: 'absolute', bottom: 24, right: 24, width: 70}} />
+      <img src='/static/animation2.gif' style={{position: 'absolute', bottom: 24, left: 24, width: 100}} />
 
       <style jsx>{`
       input {
@@ -39,6 +50,7 @@ const Index = () => {
         max-width: 500px;
         font-size: 18px;
         outline: none;
+        font-size: 17px;
       }
       input:hover {
         border: 1px solid rgba(0,0,0,.5);
@@ -59,9 +71,9 @@ const Index = () => {
         padding: 0;
         height: 64px;
         width: 90%;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
         max-width: 500px;
-        font-size: 18px;
+        font-size: 17px;
         cursor: pointer;
       }
       a:hover {
@@ -69,6 +81,32 @@ const Index = () => {
       }
       p {
         margin: 0;
+      }
+      a {
+        color: #1200f4 !important;
+        text-transform: uppercase;
+        padding: .7em;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: calc(18px + (1100vh - 5500px)/500);
+        border-color: #cbcbcb #4e474e #4e474e #cbcbcb;
+        border-style: solid;
+        border-width: 5px;
+        background: #adadad;
+        font-weight: 700;
+      }
+      a:hover {
+        color: #fdf500 !important;
+        outline-color: #fdf500;
+        background: #adadad;
+      }
+      input {
+        border-radius: 0;
+        border-left: 1px solid gray;
+        border-right: 1px solid #dfdfdf;
+        border-bottom: 1px solid #dfdfdf;
+        box-shadow: inset 1px 1px #000, 1px 0 #fff, 0 1px #fff, 1px 1px #fff;
+        font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
       }
       `}</style>
     </div>
