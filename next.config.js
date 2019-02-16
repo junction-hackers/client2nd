@@ -2,6 +2,9 @@ const withSass = require('@zeit/next-sass')
 const withProgressBar = require('next-progressbar')
 const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
 const Visualizer = require('webpack-visualizer-plugin');
+require('dotenv').config()
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
 
 let config = {
   onDemandEntries: {
@@ -14,6 +17,18 @@ let config = {
         test: /\.glsl$/,
         use: ["raw-loader"]
       })
+      config.plugins = config.plugins || []
+
+      config.plugins = [
+        ...config.plugins,
+
+        // Read the .env file
+        new Dotenv({
+          path: path.join(__dirname, '.env'),
+          systemvars: true
+        })
+      ]
+
     if(dev) {
       config.devtool = 'cheap-module-source-map'
       config.output.crossOriginLoading = 'anonymous'
