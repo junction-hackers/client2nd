@@ -31,6 +31,7 @@ class MyDocument extends Document {
           #__next {
             width: 100vw;
             height: 100vh;
+            display: flex;
           }
         `}</style>
       </html>
