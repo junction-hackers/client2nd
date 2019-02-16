@@ -32,6 +32,8 @@ class MyDocument extends Document {
             width: 100vw;
             height: 100vh;
             display: flex;
+            font-family: Comic Sans MS,Arial,Helvetica,sans-serif;
+            -webkit-font-smoothing: antialiased;
           }
         `}</style>
       </html>
