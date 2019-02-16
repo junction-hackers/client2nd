@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import User from '../components/user.js'
 import Router from 'next/router'
 
 import '../styles/main.scss'
@@ -9,31 +9,30 @@ import '../styles/main.scss'
  */
 const Index = () => {
   const [selectedFile, setSelectedFile] = useState(0);
-
-  let handleSelectedFile = event => {
-      setSelectedFile(event.target.files[0])
-      navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
-
-      function foundLocation(position)
-      {
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
-        Router.push(`/map?lat=${lat}&long=${long}`)
-      }
-      function noLocation()
-      {
-        alert('Could not find location');
-      }
+  const [victimBool, setVictimBool] = useState(true);
+  let handleVictimFile = event => {
+-    setSelectedFile(event.target.files[0])
+     setVictimBool(true)
+      Router.push('/map')
   }
-
+  let handleSearchFile = event => {
+-    setSelectedFile(event.target.files[0])
+     setVictimBool(false)
+      Router.push('/map')
+  }
   return (
     <div style={{justifyContent: 'center',
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
     background: '#fafafa',
-  width: '100%',
-background: "url('/static/bg.gif')"}}>
+    width: '100%',
+    background: "url('/static/bg.gif')"}}>
+    <User
+     image={selectedFile}
+     victimBool={victimBool} 
+    />
+
     <p><span>If you found <i>someone involved in a disaster</i>, or if you are searching for your <b>missing loved ones</b>, please use the buttons below:</span></p>
     <img src='/static/Trackr.png' style={{position: 'absolute',
     top: 70,
@@ -43,11 +42,11 @@ background: "url('/static/bg.gif')"}}>
 }} />
     <label for="file_photo">
       FOUND
-      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSelectedFile}/>
+      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleVictimFile}/>
     </label>
     <label for="file_photo">
       SEARCHING
-      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSelectedFile}/>
+      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSearchFile}/>
     </label>
 
     <img src='/static/globe.gif' style={{position: 'absolute', bottom: 24, right: 24, width: 70}} />
@@ -134,7 +133,6 @@ background: "url('/static/bg.gif')"}}>
       font-weight: normal;
     }
     `}</style>
-
     </div>
   )
 }

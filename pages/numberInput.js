@@ -20,8 +20,8 @@ const Index = () => {
     display: 'flex',
     flexDirection: 'column',
     background: '#fafafa',
-  width: '100%',
-background: "url('/static/bg.gif')"}}>
+    width: '100%',
+    background: "url('/static/bg.gif')"}}>
 <img src='/static/Trackr.png' style={{position: 'absolute',
 top: 70,
 left: '50%',
