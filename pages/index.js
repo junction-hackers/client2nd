@@ -38,7 +38,7 @@ background: "url('/static/bg.gif')"}}>
     <img src='/static/Trackr.png' style={{position: 'absolute',
     top: 70,
     left: '50%',
-    width: 200,
+    width: 270,
     transform: 'translateX(-50%)'
 }} />
     <label for="file_photo">
@@ -81,7 +81,7 @@ background: "url('/static/bg.gif')"}}>
       padding: .7em;
       text-decoration: underline;
       cursor: pointer;
-      font-size: calc(18px + (1100vh - 5500px)/500);
+      font-size: 17px;
       border-color: #cbcbcb #4e474e #4e474e #cbcbcb;
       border-style: solid;
       border-width: 5px;
@@ -105,7 +105,7 @@ background: "url('/static/bg.gif')"}}>
       left: 0;
       padding: 12px;
       box-sizing: border-box;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 400;
     }
 

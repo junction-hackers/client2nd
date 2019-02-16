@@ -25,7 +25,7 @@ background: "url('/static/bg.gif')"}}>
 <img src='/static/Trackr.png' style={{position: 'absolute',
 top: 70,
 left: '50%',
-width: 200,
+width: 270,
 transform: 'translateX(-50%)'
 }} />
       <input id="autocomplete" placeholder="Enter phone number" type="text" />
@@ -73,7 +73,7 @@ transform: 'translateX(-50%)'
         width: 90%;
         margin-bottom: 24px;
         max-width: 500px;
-        font-size: 17px;
+        font-size: 16px;
         cursor: pointer;
       }
       a:hover {
@@ -88,12 +88,13 @@ transform: 'translateX(-50%)'
         padding: .7em;
         text-decoration: underline;
         cursor: pointer;
-        font-size: calc(18px + (1100vh - 5500px)/500);
+        font-size: 17px;
         border-color: #cbcbcb #4e474e #4e474e #cbcbcb;
         border-style: solid;
         border-width: 5px;
         background: #adadad;
         font-weight: 700;
+        text-decoration: underline !important;
       }
       a:hover {
         color: #fdf500 !important;
