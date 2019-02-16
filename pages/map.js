@@ -92,19 +92,21 @@ const Search = observer(class Search extends Component {
 
   render() {
     return (
-      <div style={{justifyContent: 'center',
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        background: '#fafafa',
-        width: '100%',}}>
+      <div style={{background: 'white',
+      width: '100%',
+      textAlign: 'center',
+      paddingTop: 64}}>
         <Script
           url={process.env.API_URL}
           onLoad={this.handleScriptLoad}
         />
-        <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
+        <div><img src='/static/logo.png' style={{marginBottom: 64, width: 180}} /></div>
+        <div>
         <input id="autocomplete" placeholder="Enter location" hintText="Search City" value={this.state.query} onChange={this.handleInputChange} />
+        </div>
+        <div>
         <a onClick={this.loadNextPage}>NEXT</a>
+        </div>
 
 
         <style jsx>{`
@@ -118,7 +120,7 @@ const Search = observer(class Search extends Component {
           border: 1px solid black;
           border: 1px solid rgba(0,0,0,.23);
           border-radius: 12px;
-          margin-bottom: 30px;
+          margin-bottom: 24px;
           padding: 14px 20px;
           max-width: 500px;
           font-size: 18px;

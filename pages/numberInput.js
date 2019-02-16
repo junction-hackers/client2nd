@@ -82,15 +82,17 @@ let handleChange = (event) =>{
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [end, setEnd] = useState(false);
   return (
-    <div style={{justifyContent: 'center',
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    background: '#fafafa',
-    width: '100%',}}>
-    <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
+    <div style={{background: 'white',
+    width: '100%',
+    textAlign: 'center',
+    paddingTop: 64}}>
+    <div><img src='/static/logo.png' style={{marginBottom: 64, width: 180}} /></div>
+    <div>
     <input id="autocomplete" placeholder="Enter phone number" type="text" onChange={handleChange}/>
+    </div>
+    <div>
     <a onClick={ Send  }>SEND</a>
+    </div>
 
 
     <style jsx>{`
@@ -104,12 +106,13 @@ let handleChange = (event) =>{
       border: 1px solid black;
       border: 1px solid rgba(0,0,0,.23);
       border-radius: 12px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       padding: 14px 20px;
       max-width: 500px;
       font-size: 18px;
       outline: none;
       font-size: 17px;
+      box-sizing: border-box;
     }
     input:hover {
       border: 1px solid rgba(0,0,0,.5);

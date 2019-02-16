@@ -41,22 +41,28 @@ const Index = () => {
 
 
   return (
-    <div style={{justifyContent: 'center',
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    background: '#fafafa',
-    width: '100%'}}>
+    <div style={{background: 'white',
+    width: '100%',
+    textAlign: 'center',
+    paddingTop: 64}}>
 
-    <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
+
+    <div><img src='/static/logo.png' style={{marginBottom: 40, width: 180}} /></div>
+    <p>Hey, it's me Trakr! Your search and rescue buddy!<br />Did you find a missing person? Or are you searching for your loved ones?</p>
+    <div>
     <label for="file_victim">
       FOUND
       <input id="file_victim" type="file" style={{display:'none'}} onChange={handleVictimFile}/>
     </label>
+    </div>
+    <div>
     <label for="file_search">
       SEARCHING
       <input id="file_search" type="file" style={{display:'none'}} onChange={handleSearchFile}/>
     </label>
+    </div>
+
+
     <style jsx>{`
     label {
       color: black;
@@ -83,33 +89,17 @@ const Index = () => {
     p {
       width: 100%;
       margin: 0 auto;
-      white-space: nowrap;
-      overflow: hidden;
       box-sizing: border-box;
-      color: white;
-      position: absolute;
+      color: rgba(0,0,0,.5);
       top: 0;
       left: 0;
-      padding: 12px;
+      padding: 0 20px;
       box-sizing: border-box;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 400;
-    }
-
-    span {
-        display: inline-block;
-        padding-left: 100%;  /* show the marquee just outside the paragraph */
-        animation: marquee 15s linear infinite;
-    }
-
-    span:hover {
-        animation-play-state: paused
-    }
-
-    /* Make it move */
-    @keyframes marquee {
-        0%   { transform: translate(0, 0); }
-        100% { transform: translate(-100%, 0); }
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 700px;
     }
 
     i {

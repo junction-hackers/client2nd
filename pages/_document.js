@@ -21,7 +21,7 @@ class MyDocument extends Document {
           <link rel="stylesheet" href='/_next/static/style.css'/>
         </Head>
 
-        <body>
+        <body style={{margin: 0}}>
           <Main/>
           <NextScript/>
         </body>
