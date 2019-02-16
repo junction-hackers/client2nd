@@ -2,14 +2,17 @@
 import React, { Component } from 'react';
 // Import Search Bar Components
 
-import User from '../components/user.js'
 // Import React Scrit Libraray to load Google object
 import Script from 'react-load-script';
 import '../styles/main.scss'
 
 import Router from 'next/router'
 
-class Search extends Component {
+import Store from '../components/Store'
+import { observer } from 'mobx-react'
+import {observable, computed, decorate} from 'mobx'
+
+const Search = observer(class Search extends Component {
   // Define Constructor
   constructor(props) {
     super(props);
@@ -32,6 +35,7 @@ class Search extends Component {
   options
 
   loadNextPage(){
+    Store.address = this.state.query 
     Router.push('/numberInput')
   }
 
@@ -54,7 +58,6 @@ class Search extends Component {
     }
     noLocation()
     {
-      options = {}
     }
 
   handleScriptLoad() {
@@ -73,15 +76,17 @@ class Search extends Component {
 
   handlePlaceSelect() {
     let addressObject = this.autocomplete.getPlace();
-    let address = addressObject.address_components;
+    if(typeof addressObject !== 'undefined'){
+      let address = addressObject.address_components;
 
-    if (address) {
-      this.setState(
-        {
-          city: address[0].long_name,
-          query: addressObject.formatted_address,
-        }
-      );
+      if (address) {
+        this.setState(
+          {
+            city: address[0].long_name,
+            query: addressObject.formatted_address,
+          }
+        );
+      }
     }
   }
 
@@ -96,9 +101,6 @@ class Search extends Component {
         <Script
           url={process.env.API_URL}
           onLoad={this.handleScriptLoad}
-        />
-        <User
-          address={this.state.query} 
         />
         <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
         <input id="autocomplete" placeholder="Enter location" hintText="Search City" value={this.state.query} onChange={this.handleInputChange} />
@@ -157,6 +159,6 @@ class Search extends Component {
       </div>
     );
   }
-}
+})
 
 export default Search;

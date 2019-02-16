@@ -1,18 +1,80 @@
 import React, { useState } from 'react'
-import User from '../components/user.js'
+
+import axios from 'axios'
+import AWS from 'aws-sdk'
+import Store from '../components/Store'
+import { observer } from 'mobx-react'
+import {observable, computed, decorate} from 'mobx'
+
+var victimBucketName = 'hacktoncloudapi-tokyojunctionvictimbucket-1dt0qaq4h9akn';
+var searcherBucketName = 'hacktoncloudapi-tokyojunctionsearchbucket-e41mee3gvpco';
+var bucketRegion = 'ap-northeast-1';
+var IdentityPoolId = 'IDENTITY_POOL_ID';
+
+/*
+AWS.config.update({
+  region: bucketRegion,
+  credentials: new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: IdentityPoolId
+  })
+});
+
+var s3 = new AWS.S3({
+  params: {Bucket: Store.victimBool ? victimBucketName : searcherBucketName}
+});
+
+console.log("---1----");
+console.log(params);
+console.log(s3);
+*/
 
 
+function addPhoto(file,victimBool) {
+  const json = JSON.stringify(Store);
+  const blob = new Blob([json], {
+    type: 'application/json'
+  });
+  const data = new FormData();
+  data.append("document", blob);
+  axios({
+    method: 'post',
+    url: `http://192.168.179.6:3005/api/input/${Store.victimBool ? 'victim' : 'searcher'}`,
+    data: data,
+  })
+
+  //var keyPrefix = 'raw/'
+  //var id = 0
+  //axios
+  //  .get('http://192.168.179.6:3005/api/generate_id')
+  //  .then(({ data })=> {
+  //    data.victim_id
+  //    data.searcher_id
+  //    id = Store.victimBool ? data.victim_id : data.searcher_id
+  //  });
+  //var photoKey = keyPrefix+id;
+  //console.log('key' + photoKey)
+  //s3.upload({
+  //  Key: photoKey,
+  //  Body: file,
+  //  ACL: 'public-read'
+  //}, function(err, data) {
+  //  if (err) {
+  //    return alert('There was an error uploading your photo: ', err.message);
+  //  }
+  //  Store.photoKey = photoKey
+  //})
+}
 /**
  * Implements main page
  */
 
-const Index = () => {
-
+const Number = () => {
 let Send = () =>{
-  setEnd(true)
+  addPhoto(Store.image,Store.victimBool)
 }
 
 let handleChange = (event) =>{
+  Store.phoneNumber = event.target.value
   setPhoneNumber(event.target.value)
 }
 
@@ -26,10 +88,9 @@ let handleChange = (event) =>{
     flexDirection: 'column',
     background: '#fafafa',
     width: '100%',}}>
-    <User phoneNumber={phoneNumber} end={end} />
     <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
     <input id="autocomplete" placeholder="Enter phone number" type="text" onChange={handleChange}/>
-    <a onClick={ () => Send  }>SEND</a>
+    <a onClick={ Send  }>SEND</a>
 
 
     <style jsx>{`
@@ -85,4 +146,4 @@ let handleChange = (event) =>{
   )
 }
 
-export default Index
+export default Number

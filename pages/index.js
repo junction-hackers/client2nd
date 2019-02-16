@@ -1,50 +1,62 @@
 import React, { useState } from 'react'
 import User from '../components/user.js'
 import Router from 'next/router'
-
 import '../styles/main.scss'
-
+import Store from '../components/Store'
+import { observer } from 'mobx-react'
+import {observable, computed, decorate} from 'mobx'
 /**
  * Implements main page
  */
+
+
+let photokey
+let phoneNumber
+let address
+let victimBool
+
 const Index = () => {
   const [selectedFile, setSelectedFile] = useState(0);
   const [victimBool, setVictimBool] = useState(true);
+
   let handleVictimFile = event => {
--    setSelectedFile(event.target.files[0])
+    console.log('Victim')
+     Store.victimBool = true
+     Store.image = event.target.files[0]
+
+     setSelectedFile(event.target.files[0])
      setVictimBool(true)
       Router.push('/map')
   }
+
   let handleSearchFile = event => {
--    setSelectedFile(event.target.files[0])
+    console.log('search')
+     Store.victimBool = false
+     Store.file = event.target.files[0]
+
+    setSelectedFile(event.target.files[0])
      setVictimBool(false)
-      Router.push('/map')
+      Router.push('/numberInput')
   }
+
+
   return (
     <div style={{justifyContent: 'center',
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
     background: '#fafafa',
-  width: '100%'}}>
-
-      <User
-       image={selectedFile}
-       victimBool={victimBool}
-      />
+    width: '100%'}}>
 
     <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
-
-    <label for="file_photo">
+    <label for="file_victim">
       FOUND
-      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleVictimFile}/>
+      <input id="file_victim" type="file" style={{display:'none'}} onChange={handleVictimFile}/>
     </label>
-    <label for="file_photo">
+    <label for="file_search">
       SEARCHING
-      <input id="file_photo" type="file" style={{display:'none'}} onChange={handleSearchFile}/>
+      <input id="file_search" type="file" style={{display:'none'}} onChange={handleSearchFile}/>
     </label>
-
-
     <style jsx>{`
     label {
       color: black;
