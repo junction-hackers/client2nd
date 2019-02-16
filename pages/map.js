@@ -98,24 +98,15 @@ class Search extends Component {
         display: 'flex',
         flexDirection: 'column',
         background: '#fafafa',
-        width: '100%',
-        background: "url('/static/bg.gif')"}}>
-        <img src='/static/Trackr.png' style={{position: 'absolute',
-        top: 70,
-        left: '50%',
-        width: 270,
-        transform: 'translateX(-50%)'
-        }} />
+        width: '100%',}}>
         <Script
           url={process.env.API_URL}
           onLoad={this.handleScriptLoad}
         />
-
+        <h1 style={{color: 'black', margin: 0, position: 'absolute', top: 64, fontSize: 56}}>Trackr</h1>
         <input id="autocomplete" placeholder="Enter location" hintText="Search City" value={this.state.query} onChange={this.handleInputChange} />
         <a>NEXT</a>
 
-        <img src='/static/globe.gif' style={{position: 'absolute', bottom: 24, right: 24, width: 70}} />
-        <img src='/static/animation2.gif' style={{position: 'absolute', bottom: 24, left: 24, width: 100}} />
 
         <style jsx>{`
         input {
@@ -164,33 +155,6 @@ class Search extends Component {
         }
         p {
           margin: 0;
-        }
-        a {
-          color: #1200f4 !important;
-          text-transform: uppercase;
-          padding: .7em;
-          text-decoration: underline;
-          cursor: pointer;
-          font-size: 17px;
-          border-color: #cbcbcb #4e474e #4e474e #cbcbcb;
-          border-style: solid;
-          border-width: 5px;
-          background: #adadad;
-          font-weight: 700;
-          text-decoration: underline !important;
-        }
-        a:hover {
-          color: #fdf500 !important;
-          outline-color: #fdf500;
-          background: #adadad;
-        }
-        input {
-          border-radius: 0;
-          border-left: 1px solid gray;
-          border-right: 1px solid #dfdfdf;
-          border-bottom: 1px solid #dfdfdf;
-          box-shadow: inset 1px 1px #000, 1px 0 #fff, 0 1px #fff, 1px 1px #fff;
-          font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
         }
         `}</style>
       </div>
