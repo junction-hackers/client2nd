@@ -35,7 +35,7 @@ function addPhoto(file,victimBool) {
   data.append("document", json)
   axios({
     method: 'post',
-    url: `http://192.168.179.6:3005/api/input/${Store.victimBool ? 'victim' : 'searcher'}`,
+    url: `http://ec2-54-250-245-163.ap-northeast-1.compute.amazonaws.com:3005/api/input/${Store.victimBool ? 'victim' : 'searcher'}`,
     data: data,
   })
 
