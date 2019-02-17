@@ -31,11 +31,8 @@ console.log(s3);
 
 function addPhoto(file,victimBool) {
   const json = JSON.stringify(Store);
-  const blob = new Blob([json], {
-    type: 'application/json'
-  });
   const data = new FormData();
-  data.append("document", blob);
+  data.append("document", json)
   axios({
     method: 'post',
     url: `http://192.168.179.6:3005/api/input/${Store.victimBool ? 'victim' : 'searcher'}`,
@@ -71,6 +68,7 @@ function addPhoto(file,victimBool) {
 const Number = () => {
 let Send = () =>{
   addPhoto(Store.image,Store.victimBool)
+  alert('Your Image Has Been Sent')
 }
 
 let handleChange = (event) =>{
